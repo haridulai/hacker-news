@@ -1,7 +1,6 @@
 import axios from "axios";
 import Author from "../models/author";
 import Story from "../models/story";
-import StoryId from "../models/storyId";
 
 class hackerNewsApiService {
   http = axios.create({
@@ -9,9 +8,9 @@ class hackerNewsApiService {
   });
 
   async getStoryIds() {
-    const response = await this.http.get<StoryId[]>("/topstories.json");
+    const response = await this.http.get<number[]>("/topstories.json");
     let data = response.data,
-      storyIDs: StoryId[] = [],
+      storyIDs: number[] = [],
       currentIndex: number = data.length,
       randomIndex: number;
 
@@ -25,7 +24,20 @@ class hackerNewsApiService {
     return storyIDs;
   }
 
-  async getStory(storyId: StoryId) {
+  async getStories() {
+    const storyIds = await this.getStoryIds();
+    let stories: Story[] = [];
+
+    for (let storyId of storyIds) {
+      stories.push(await this.getStory(storyId));
+    }
+
+    stories.sort((a, b) => a.score - b.score);
+
+    return stories;
+  }
+
+  async getStory(storyId: number) {
     const response = await this.http.get<Story>(`/item/${storyId}.json`);
     return response.data;
   }

@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from "react";
-import StoryId from "../models/storyId";
+import Story from "../models/story";
 import hackerNewsApiService from "../services/hackNewsApi";
 import StoryItem from "./StoryItem";
 
 function StoryList(): JSX.Element {
-  const [storyIds, setStoryIds] = useState<StoryId[]>([]);
+  const [stories, setStories] = useState<Story[]>([]);
 
   useEffect(() => {
-    getStoryIds();
+    getStories();
   }, []);
 
-  const getStoryIds = async () => {
-    const storyIds = await hackerNewsApiService.getStoryIds();
+  const getStories = async () => {
+    const stories = await hackerNewsApiService.getStories();
     console.log("getstoryids");
-    setStoryIds(storyIds);
+    setStories(stories);
   };
 
   return (
     <div>
-      {storyIds.map((storyId) => (
-        <StoryItem key={storyId.id} storyId={storyId} />
+      {stories.map((story) => (
+        <StoryItem key={story.id} storyItem={story} />
       ))}
     </div>
   );
