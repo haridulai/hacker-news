@@ -12,7 +12,6 @@ function StoryList(): JSX.Element {
 
   const getStories = async () => {
     const stories = await hackerNewsApiService.getStories();
-    console.log("getstoryids");
     setStories(stories);
   };
 
