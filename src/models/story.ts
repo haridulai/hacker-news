@@ -1,7 +1,7 @@
 export default interface Story {
   title: string;
   url: string;
-  story: Date;
+  time: number;
   score: number;
   by: string;
 }

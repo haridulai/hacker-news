@@ -29,6 +29,11 @@ class hackerNewsApiService {
     const response = await this.http.get<Story>(`/item/${storyId}.json`);
     return response.data;
   }
+
+  async getAuthor(authorId: string) {
+    const response = await this.http.get<Author>(`/user/${authorId}.json`);
+    return response.data;
+  }
 }
 
 export default new hackerNewsApiService();

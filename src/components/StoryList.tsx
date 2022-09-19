@@ -12,15 +12,16 @@ function StoryList(): JSX.Element {
 
   const getStoryIds = async () => {
     const storyIds = await hackerNewsApiService.getStoryIds();
+    console.log("getstoryids");
     setStoryIds(storyIds);
   };
 
   return (
-    <>
+    <div>
       {storyIds.map((storyId) => (
-        <StoryItem storyId={storyId} />
+        <StoryItem key={storyId.id} storyId={storyId} />
       ))}
-    </>
+    </div>
   );
 }
 
