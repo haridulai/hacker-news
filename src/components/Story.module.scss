@@ -7,13 +7,17 @@
   padding: 15px;
   margin-bottom: 10px;
   border-radius: 10px;
+  gap: 10px;
+  width: 100%;
+  max-width: 350px;
 
-  @include mixin.tablet {
-    flex-direction: row;
-  }
+  // @include mixin.tablet {
+  //   flex-direction: row;
+  // }
 
   & > img {
-    max-width: 50px;
+    width: 100%;
+    max-width: 350px;
     object-fit: contain;
     border-radius: 10px;
   }
@@ -21,8 +25,14 @@
   &__info {
     display: flex;
     flex-direction: column;
-    margin-bottom: 10px;
-    margin-left: 10px;
+    max-width: 350px;
+    gap: 30px;
+    order: 3;
+
+    // @include mixin.tablet {
+    //   margin-bottom: 10px;
+    //   margin-left: 10px;
+    // }
   }
 
   &__header {
@@ -33,6 +43,19 @@
     & > p {
       font-size: 12px;
       color: gray;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      a {
+        font-size: 10px;
+        color: gray;
+      }
+    }
+
+    & a {
+      text-decoration: none;
+      color: black;
     }
   }
 
