@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import IAuthor from "../models/author";
-import hackerNewsApiService from "../services/hackNewsApi";
+import hackerNewsApiService from "../services/hackerNewsApi";
 
 interface AuthorProps {
   authorId: string;

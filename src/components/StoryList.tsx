@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import IStory from "../models/story";
-import hackerNewsApiService from "../services/hackNewsApi";
+import hackerNewsApiService from "../services/hackerNewsApi";
 import StoryItem from "./Story";
 
 function StoryList(): JSX.Element {
