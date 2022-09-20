@@ -8,12 +8,15 @@ interface StoryProps {
 function Story({ story }: StoryProps): JSX.Element {
   return (
     <div>
+      <img
+        src={process.env.PUBLIC_URL + "/placeholder.jpg"}
+        alt={story.title}
+      />
       <p>SCORE: {story.score}</p>
       <a href={story.url}>
         <p>{story.title}</p>
       </a>
-      <p>By: {story.by}</p>
-      <p>Created at: {story.time}</p>
+      <p>Created at: {new Date(story.time).toLocaleString()}</p>
       <Author authorId={story.by} />
     </div>
   );
