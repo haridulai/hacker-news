@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import IAuthor from "../models/author";
 import hackerNewsApiService from "../services/hackerNewsApi";
+import styles from "./Author.module.scss";
 
 interface AuthorProps {
   authorId: string;
@@ -20,9 +21,11 @@ function Author({ authorId }: AuthorProps): JSX.Element {
   };
 
   return (
-    <div>
-      <p> {author?.id}</p>
-      <p>Karma score: {author?.karma}</p>
+    <div className={styles.author}>
+      <p>
+        <i>by {author?.id} </i>
+        <strong>({author?.karma})</strong>
+      </p>
     </div>
   );
 }

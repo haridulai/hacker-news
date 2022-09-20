@@ -11,31 +11,36 @@
   width: 100%;
   max-width: 350px;
 
-  // @include mixin.tablet {
-  //   flex-direction: row;
-  // }
+  @include mixin.tablet {
+    flex-direction: row;
+    max-width: 700px;
+  }
 
   & > img {
     width: 100%;
     max-width: 350px;
     object-fit: contain;
     border-radius: 10px;
+
+    @include mixin.tablet {
+      max-width: 115px;
+    }
   }
 
   &__info {
     display: flex;
     flex-direction: column;
-    max-width: 350px;
-    gap: 30px;
-    order: 3;
-
-    // @include mixin.tablet {
-    //   margin-bottom: 10px;
-    //   margin-left: 10px;
-    // }
+    gap: 10px;
+    width: 100%;
   }
 
   &__header {
+    order: 2;
+
+    @include mixin.tablet {
+      order: 0;
+    }
+
     & > h2 {
       font-size: 15px;
     }
@@ -46,6 +51,7 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      max-width: 545px;
 
       a {
         font-size: 10px;
@@ -62,6 +68,8 @@
   &__stats {
     display: flex;
     justify-content: space-between;
+    order: 3;
+    margin-top: auto;
 
     & > p {
       font-size: 12px;

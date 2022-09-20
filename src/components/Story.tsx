@@ -26,13 +26,14 @@ function Story({ story }: StoryProps): JSX.Element {
             </a>
           </p>
         </div>
-
+        <Author authorId={story.by} />
         <div className={styles.story__stats}>
-          <p>SCORE: {story.score}</p>
-          <p>Created at: {new Date(story.time).toLocaleString()}</p>
+          <p>
+            Score: <strong>{story.score}</strong>
+          </p>
+          <p>Posted at: {new Date(story.time).toLocaleString()}</p>
         </div>
       </div>
-      <Author authorId={story.by} />
     </div>
   );
 }
