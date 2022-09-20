@@ -1,6 +1,8 @@
+@use "../styles/mixins" as mixin;
+
 .author {
   & > p {
     font-size: 10px;
-    color: gray;
+    color: mixin.$color-gray;
   }
 }
