@@ -1,6 +1,6 @@
 import axios from "axios";
-import Author from "../models/author";
-import Story from "../models/story";
+import IAuthor from "../models/author";
+import IStory from "../models/story";
 
 class hackerNewsApiService {
   http = axios.create({
@@ -26,7 +26,7 @@ class hackerNewsApiService {
 
   async getStories() {
     const storyIds = await this.getStoryIds();
-    let stories: Story[] = [];
+    let stories: IStory[] = [];
 
     for (let storyId of storyIds) {
       stories.push(await this.getStory(storyId));
@@ -38,12 +38,12 @@ class hackerNewsApiService {
   }
 
   async getStory(storyId: number) {
-    const response = await this.http.get<Story>(`/item/${storyId}.json`);
+    const response = await this.http.get<IStory>(`/item/${storyId}.json`);
     return response.data;
   }
 
   async getAuthor(authorId: string) {
-    const response = await this.http.get<Author>(`/user/${authorId}.json`);
+    const response = await this.http.get<IAuthor>(`/user/${authorId}.json`);
     return response.data;
   }
 }

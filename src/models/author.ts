@@ -1,4 +1,4 @@
-export default interface Author {
+export default interface IAuthor {
   id: number;
   karma: number;
 }

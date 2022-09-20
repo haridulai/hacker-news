@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Story from "../models/story";
+import IStory from "../models/story";
 import hackerNewsApiService from "../services/hackNewsApi";
-import StoryItem from "./StoryItem";
+import StoryItem from "./Story";
 
 function StoryList(): JSX.Element {
-  const [stories, setStories] = useState<Story[]>([]);
+  const [stories, setStories] = useState<IStory[]>([]);
 
   useEffect(() => {
     getStories();
@@ -18,7 +18,7 @@ function StoryList(): JSX.Element {
   return (
     <div>
       {stories.map((story) => (
-        <StoryItem key={story.id} storyItem={story} />
+        <StoryItem key={story.id} story={story} />
       ))}
     </div>
   );

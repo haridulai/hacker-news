@@ -1,4 +1,4 @@
-export default interface Story {
+export default interface IStory {
   id: number;
   title: string;
   url: string;

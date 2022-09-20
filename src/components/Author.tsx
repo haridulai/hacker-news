@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
-import Author from "../models/author";
+import IAuthor from "../models/author";
 import hackerNewsApiService from "../services/hackNewsApi";
 
-interface StoryMetaDataProps {
-  authorId?: string;
-  time?: number;
+interface AuthorProps {
+  authorId: string;
 }
-function StoryMetaData({ authorId, time }: StoryMetaDataProps): JSX.Element {
-  const [author, setAuthor] = useState<Author | null>(null);
+function Author({ authorId }: AuthorProps): JSX.Element {
+  const [author, setAuthor] = useState<IAuthor | null>(null);
 
   useEffect(() => {
     getAuthor();
@@ -22,11 +21,10 @@ function StoryMetaData({ authorId, time }: StoryMetaDataProps): JSX.Element {
 
   return (
     <div>
-      <p>{time}</p>
       <p> {author?.id}</p>
       <p>Karma score: {author?.karma}</p>
     </div>
   );
 }
 
-export default StoryMetaData;
+export default Author;
