@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import IStory from "../models/story";
 import hackerNewsApiService from "../services/hackerNewsApi";
 import StoryItem from "./Story";
+import styles from "./Stories.module.scss";
 
-function StoryList(): JSX.Element {
+function Stories(): JSX.Element {
   const [stories, setStories] = useState<IStory[]>([]);
 
   useEffect(() => {
@@ -16,7 +17,7 @@ function StoryList(): JSX.Element {
   };
 
   return (
-    <div>
+    <div className={styles.stories}>
       {stories.map((story) => (
         <StoryItem key={story.id} story={story} />
       ))}
@@ -24,4 +25,4 @@ function StoryList(): JSX.Element {
   );
 }
 
-export default StoryList;
+export default Stories;

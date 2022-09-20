@@ -1,10 +1,12 @@
 import React from "react";
-import StoryList from "./components/StoryList";
+import Stories from "./components/Stories";
+import "./styles/_global.scss";
+import styles from "./App.module.scss";
 
 function App(): JSX.Element {
   return (
-    <div className="app">
-      <StoryList />
+    <div className={styles.app}>
+      <Stories />
     </div>
   );
 }
