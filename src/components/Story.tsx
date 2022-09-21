@@ -1,5 +1,6 @@
 import IStory from "../models/story";
 import Author from "./Author";
+import mapTime from "../services/mapTime";
 import styles from "./Story.module.scss";
 
 interface StoryProps {
@@ -31,7 +32,7 @@ function Story({ story }: StoryProps): JSX.Element {
           <p>
             Score: <strong>{story.score}</strong>
           </p>
-          <p>Posted at: {new Date(story.time).toLocaleString()}</p>
+          <p>Posted {mapTime(story.time)}</p>
         </div>
       </div>
     </div>
