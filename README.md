@@ -5,7 +5,7 @@ This project uses the Hacker news API to display 10 stories ordered ascending or
 This project uses:
 
 - Create React App with TypeScript
-- SASS with modular styling and BEM naming convention
+- SASS with module styling and BEM naming convention
 
 ## Installation
 
